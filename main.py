@@ -10,7 +10,7 @@ from rpi_ws281x import *
 import argparse
 
 # LED strip configuration:
-LED_COUNT = 16  # Number of LED pixels.
+LED_COUNT = 50  # Number of LED pixels.
 LED_PIN = 18  # GPIO pin connected to the pixels (18 uses PWM!).
 # LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
 LED_FREQ_HZ = 800000  # LED signal frequency in hertz (usually 800khz)
@@ -89,8 +89,9 @@ def ICE_test(strip):
         if i < 30 :
             strip.setPixelColor(i, Color(214, 236, 239) if patern[i] else Color(0, 0, 0))
         else :
-            strip.setPixelColor(i, Color(214, 236, 239) if patern[i] else Color(0, 0, 0))
+            strip.setPixelColor(i, Color(0, 0, 0))
     strip.show()
+    time.sleep(10000)
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -123,6 +124,8 @@ if __name__ == '__main__':
             rainbow(strip)
             rainbowCycle(strip)
             theaterChaseRainbow(strip)
+            print("ICE")
+            ICE_test(strip)
 
     except KeyboardInterrupt:
         if args.clear:
