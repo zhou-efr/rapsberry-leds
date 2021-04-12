@@ -83,6 +83,15 @@ def theaterChaseRainbow(strip, wait_ms=50):
                 strip.setPixelColor(i + q, 0)
 
 
+def ICE_test(strip):
+    patern = [1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1]
+    for i in range(strip.numPixel()):
+        if i < 30 :
+            strip.setPixelColor(i, Color(214, 236, 239) if patern[i] else Color(0, 0, 0))
+        else :
+            strip.setPixelColor(i, Color(214, 236, 239) if patern[i] else Color(0, 0, 0))
+    strip.show()
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
